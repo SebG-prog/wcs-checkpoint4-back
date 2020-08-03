@@ -32,4 +32,22 @@ Router.post('/', (req, res) => {
   })
 })
 
+Router.put('/', (req, res) => {
+  const { id } = req.body
+  const sql = 'UPDATE project SET ? WHERE ?'
+  connection.query(sql, [req.body, { id }], (err, stats) => {
+    if (err) {
+      res.status(500).send(`Unexpected error, ${err.message}`)
+    } else {
+      connection.query('SELECT * FROM project WHERE ?', { id }, (err ,project) => {
+        if (err) {
+          res.status(500).send(`Unexpected error, ${err.message}`)
+        } else {
+          res.status(200).json(project[0])
+        }
+      })
+    }
+  })
+})
+
 module.exports = Router
