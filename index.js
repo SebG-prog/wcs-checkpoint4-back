@@ -12,7 +12,7 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.use('/project', indexRoutes.Project)
+app.use('/projects', indexRoutes.Projects)
 
 app.listen(port, (err) => {
   if (err) {

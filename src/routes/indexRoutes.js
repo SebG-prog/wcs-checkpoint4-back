@@ -1,7 +1,7 @@
-const Project = require('./project')
+const Projects = require('./projects')
 
 const indexRoutes = {
-  Project
+  Projects
 }
 
 module.exports = indexRoutes
