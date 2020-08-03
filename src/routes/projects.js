@@ -25,7 +25,7 @@ Router.post('/', (req, res) => {
         if (err) {
           return res.status(500).send(`Unexpected error: ${err.message}`)
         } else {
-          return res.status(201).json(project)
+          return res.status(201).json(project[0])
         }
       })
     }
